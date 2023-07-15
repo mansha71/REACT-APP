@@ -1,20 +1,21 @@
 import { Fragment } from "react";
 
 function ListGroup() {
-  const items = ["New York,San Fram,Tokyo,London,pouds"];
-  if (items.length === 0)
-    return (
-      <>
-        <h1>List</h1>
-        <p>No item Found</p>;
-      </>
-    );
+  let items = ["New York", "San Fram", "Tokyo", "London", "pouds"];
+
   return (
     <>
       <h1>List</h1>
+      {items.length === 0 && <p>No item found</p>}
       <ul className="list-group">
-        {items.map((item) => (
-          <li key={item}>{item}</li>
+        {items.map((item, index) => (
+          <li
+            className="list-group-item"
+            key={item}
+            onClick={(event) => console.log(event)}
+          >
+            {item}
+          </li>
         ))}
       </ul>
     </>
